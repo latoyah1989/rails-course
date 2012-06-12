@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogSma</title>
+  <%= stylesheet_link_tag  "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body style="background: #FF025B;">
+
+  <p>huidige taal: <%= I18n.locale %></p>
+  
+ <%= link_to "nederlands" %>
+ <%= link_to "engels" %>
+
+  <% if current_user %>
+
+  <%= link_to t("logout"), destroy_user_session_path, :method => :delete %>
+
+    <% end %>
+
+  
+
+<%= yield %>
+  <p class ="notice"><%= notice %></p>
+  <p class:"alert"><%= alert %></p>
+
+
+</body>
+</html>
